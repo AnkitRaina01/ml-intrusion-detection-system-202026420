@@ -1,7 +1,7 @@
 # Machine-Learning Network Intrusion Detection: A Leakage-Controlled, Cross-Dataset Evaluation
 
 MSc Computer Science project — School of Computing, University of Leeds.
-Author: **Ankita Raina** — GitHub identity `AnkitaRaina01`
+Author: **Ankita Raina** — GitHub identity `AnkitRaina01`
 
 A machine-learning network intrusion detection pipeline built and evaluated
 across three public benchmark datasets, served through a REST API and a
