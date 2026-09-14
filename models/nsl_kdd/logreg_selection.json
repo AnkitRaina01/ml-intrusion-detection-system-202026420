@@ -1,0 +1,44 @@
+{
+  "model_file": "logreg.joblib",
+  "best_params": {
+    "C": 0.01
+  },
+  "best_val_macro_f1": 0.9605731218800108,
+  "train_seconds": 3.309850382998775,
+  "validation_search": [
+    {
+      "params": {
+        "C": 0.01
+      },
+      "val_macro_f1": 0.9605731218800108
+    },
+    {
+      "params": {
+        "C": 0.1
+      },
+      "val_macro_f1": 0.9576372594446463
+    },
+    {
+      "params": {
+        "C": 1.0
+      },
+      "val_macro_f1": 0.957458405727043
+    },
+    {
+      "params": {
+        "C": 10.0
+      },
+      "val_macro_f1": 0.9575032678098013
+    }
+  ],
+  "fixed_params": {
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "class_weight": "balanced"
+  },
+  "notes": {
+    "train_rows_used": 103695,
+    "train_rows_available": 103695,
+    "class_weight": "balanced"
+  }
+}

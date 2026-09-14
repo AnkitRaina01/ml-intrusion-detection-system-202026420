@@ -1,0 +1,45 @@
+{
+  "model_file": "logreg.joblib",
+  "dataset": "cicids2017",
+  "best_params": {
+    "C": 10.0
+  },
+  "best_val_macro_f1": 0.8494405075354257,
+  "train_seconds": 9.7247811440011,
+  "validation_search": [
+    {
+      "params": {
+        "C": 0.01
+      },
+      "val_macro_f1": 0.805748916058022
+    },
+    {
+      "params": {
+        "C": 0.1
+      },
+      "val_macro_f1": 0.8206367789280358
+    },
+    {
+      "params": {
+        "C": 1.0
+      },
+      "val_macro_f1": 0.844292173069848
+    },
+    {
+      "params": {
+        "C": 10.0
+      },
+      "val_macro_f1": 0.8494405075354257
+    }
+  ],
+  "fixed_params": {
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "class_weight": "balanced"
+  },
+  "notes": {
+    "train_rows_used": 131424,
+    "train_rows_available": 131424,
+    "class_weight": "balanced"
+  }
+}

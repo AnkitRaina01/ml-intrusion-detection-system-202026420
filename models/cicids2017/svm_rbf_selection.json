@@ -1,0 +1,34 @@
+{
+  "model_file": "svm_rbf.joblib",
+  "dataset": "cicids2017",
+  "best_params": {
+    "C": 10.0
+  },
+  "best_val_macro_f1": 0.8937874981234559,
+  "train_seconds": 46.74902039600056,
+  "validation_search": [
+    {
+      "params": {
+        "C": 1.0
+      },
+      "val_macro_f1": 0.8828983861776063
+    },
+    {
+      "params": {
+        "C": 10.0
+      },
+      "val_macro_f1": 0.8937874981234559
+    }
+  ],
+  "fixed_params": {
+    "kernel": "rbf",
+    "class_weight": "balanced",
+    "gamma": "scale",
+    "cache_size": 512
+  },
+  "notes": {
+    "train_rows_used": 20000,
+    "train_rows_available": 131424,
+    "class_weight": "balanced"
+  }
+}

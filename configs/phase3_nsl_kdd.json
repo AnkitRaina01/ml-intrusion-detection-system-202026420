@@ -1,0 +1,44 @@
+{
+  "_comment": "Phase 3 config: 4 required models on NSL-KDD (binary target). Hyperparameter grids are searched on the VALIDATION set only; the test set is used once, at final evaluation. Edit and re-run scripts/train_models.py to change.",
+  "dataset": "nsl_kdd",
+  "task": "binary",
+  "seed": 42,
+  "processed_dir": "data/processed/nsl_kdd",
+  "sequence_dir": "data/processed/nsl_kdd_seq",
+  "models_dir": "models/nsl_kdd",
+  "results_dir": "results/nsl_kdd",
+
+  "imbalance_strategy": "class_weight",
+  "_imbalance_note": "NSL-KDD binary is only mildly imbalanced (train ~53/47) but KDDTest+ is ~43/57; class_weight='balanced' is applied to every model (Keras class_weight for the LSTM). SMOTE arrays from Phase 2 remain available as an alternative.",
+
+  "logistic_regression": {
+    "fixed": {"solver": "lbfgs", "max_iter": 2000, "class_weight": "balanced"},
+    "grid": {"C": [0.01, 0.1, 1.0, 10.0]}
+  },
+
+  "random_forest": {
+    "fixed": {"class_weight": "balanced", "n_jobs": -1},
+    "grid": {"n_estimators": [200, 400], "max_depth": [null, 20, 40]}
+  },
+
+  "svm_rbf": {
+    "fixed": {"kernel": "rbf", "class_weight": "balanced", "gamma": "scale",
+              "cache_size": 512},
+    "grid": {"C": [1.0, 10.0]},
+    "train_subsample": 20000,
+    "_subsample_note": "libsvm RBF is ~O(n^2-3); training is capped at a seeded stratified subsample. ROC-AUC uses decision_function (probability=True is not enabled - it would add slow internal CV)."
+  },
+
+  "lstm": {
+    "framework": "pytorch",
+    "window": 10,
+    "stride": 1,
+    "split": "contiguous_guarded",
+    "fixed": {"lstm_units": 64, "dropout": 0.3, "dense_units": 32,
+              "learning_rate": 0.001, "batch_size": 256, "epochs": 40},
+    "grid": {"lstm_units": [32, 64]},
+    "early_stopping_patience": 5,
+    "_seq_note": "NSL-KDD has no timestamps and near-zero label autocorrelation in published file order (~62.7k label switches over 126k rows, avg run length ~2 rows). Sequences = W consecutive records in file order; window label = last record's label. Contiguous train/val split of KDDTrain+ with a W-row guard gap so no window straddles the boundary. See DEVELOPMENT_NOTES.md section 10.3 for the full rationale and limitations.",
+    "_framework_note": "PyTorch (not TensorFlow): TF wheels compatible with the pinned numpy 1.26 require protobuf<5, which conflicts with streamlit 1.63 (needs protobuf>=5.26). PyTorch has no such conflict."
+  }
+}

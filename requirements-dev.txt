@@ -1,0 +1,4 @@
+# Development / test dependencies (NOT required to run the pipeline or models).
+#   pip install -r requirements-lock.txt -r requirements-dev.txt
+#   python -m pytest tests/ -q
+pytest==9.1.1

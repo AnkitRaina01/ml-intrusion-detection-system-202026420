@@ -1,0 +1,25 @@
+{
+  "_comment": "Phase 4 model config, shared by CIC-IDS2017 and UNSW-NB15. Same three sklearn models and the same methodology as Phase 3 (configs/phase3_nsl_kdd.json) so the within-dataset numbers are directly comparable across all three datasets. The LSTM is intentionally NOT included for the flow datasets - see DEVELOPMENT_NOTES.md section 11.4 (flow records carry no packet-level temporal order; the NSL-KDD 'context window' framing does not transfer). Grids are searched on the VALIDATION split only; the test split is used once, at final evaluation.",
+  "seed": 42,
+  "task": "binary",
+  "imbalance_strategy": "class_weight",
+  "_imbalance_note": "class_weight='balanced' on every model. The Phase-2 SMOTE arrays (X_train_balanced.npy) are written for each dataset and remain available as the documented alternative.",
+
+  "logistic_regression": {
+    "fixed": {"solver": "lbfgs", "max_iter": 2000, "class_weight": "balanced"},
+    "grid": {"C": [0.01, 0.1, 1.0, 10.0]}
+  },
+
+  "random_forest": {
+    "fixed": {"class_weight": "balanced", "n_jobs": -1},
+    "grid": {"n_estimators": [200, 400], "max_depth": [null, 20, 40]}
+  },
+
+  "svm_rbf": {
+    "fixed": {"kernel": "rbf", "class_weight": "balanced", "gamma": "scale",
+              "cache_size": 512},
+    "grid": {"C": [1.0, 10.0]},
+    "train_subsample": 20000,
+    "_subsample_note": "libsvm RBF is ~O(n^2-3); training is capped at a seeded stratified subsample (same as Phase 3). ROC-AUC uses decision_function."
+  }
+}

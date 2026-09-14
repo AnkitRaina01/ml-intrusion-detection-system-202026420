@@ -1,0 +1,34 @@
+{
+  "model_file": "svm_rbf.joblib",
+  "dataset": "unsw_nb15",
+  "best_params": {
+    "C": 10.0
+  },
+  "best_val_macro_f1": 0.9005884540134476,
+  "train_seconds": 55.213771369000824,
+  "validation_search": [
+    {
+      "params": {
+        "C": 1.0
+      },
+      "val_macro_f1": 0.8996408909638067
+    },
+    {
+      "params": {
+        "C": 10.0
+      },
+      "val_macro_f1": 0.9005884540134476
+    }
+  ],
+  "fixed_params": {
+    "kernel": "rbf",
+    "class_weight": "balanced",
+    "gamma": "scale",
+    "cache_size": 512
+  },
+  "notes": {
+    "train_rows_used": 20000,
+    "train_rows_available": 79229,
+    "class_weight": "balanced"
+  }
+}

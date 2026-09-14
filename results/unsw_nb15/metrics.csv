@@ -1,0 +1,4 @@
+model,n_test_samples,accuracy,precision_attack,recall_attack,f1_attack,macro_f1,weighted_f1,roc_auc,per_sample_ms_median,throughput_samples_per_s,train_seconds,selected_hyperparameters
+Logistic Regression,82332,0.770733,0.712164,0.979485,0.824703,0.746726,0.754617,0.743759,0.00017,5824464.6,4.4,"{""solver"": ""lbfgs"", ""max_iter"": 2000, ""class_weight"": ""balanced"", ""C"": 0.01}"
+Random Forest,82332,0.86082,0.809823,0.976551,0.885407,0.854103,0.857271,0.976866,0.02794,35790.1,181.31,"{""class_weight"": ""balanced"", ""n_jobs"": -1, ""n_estimators"": 400, ""max_depth"": 20}"
+SVM (RBF),82332,0.807633,0.741572,0.998632,0.851116,0.789693,0.795909,0.899106,0.25686,3893.1,55.21,"{""kernel"": ""rbf"", ""class_weight"": ""balanced"", ""gamma"": ""scale"", ""cache_size"": 512, ""C"": 10.0}"

@@ -1,0 +1,45 @@
+{
+  "model_file": "logreg.joblib",
+  "dataset": "unsw_nb15",
+  "best_params": {
+    "C": 0.01
+  },
+  "best_val_macro_f1": 0.8746393612491187,
+  "train_seconds": 4.399428271000943,
+  "validation_search": [
+    {
+      "params": {
+        "C": 0.01
+      },
+      "val_macro_f1": 0.8746393612491187
+    },
+    {
+      "params": {
+        "C": 0.1
+      },
+      "val_macro_f1": 0.8738685573254119
+    },
+    {
+      "params": {
+        "C": 1.0
+      },
+      "val_macro_f1": 0.8742872359973815
+    },
+    {
+      "params": {
+        "C": 10.0
+      },
+      "val_macro_f1": 0.8736638066517572
+    }
+  ],
+  "fixed_params": {
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "class_weight": "balanced"
+  },
+  "notes": {
+    "train_rows_used": 79229,
+    "train_rows_available": 79229,
+    "class_weight": "balanced"
+  }
+}

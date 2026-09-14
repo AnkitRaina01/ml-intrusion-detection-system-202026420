@@ -1,0 +1,434 @@
+{
+  "generated_utc": "2026-09-09T12:09:10+00:00",
+  "dataset": "nsl_kdd",
+  "dataset_meta": {},
+  "config": {
+    "dataset": "nsl_kdd",
+    "target": "binary",
+    "split_mode": "predefined",
+    "train_frac": 0.7,
+    "val_frac": 0.15,
+    "test_frac": 0.15,
+    "seed": 42,
+    "drop_full_row_duplicates": true,
+    "n_features": 20,
+    "variance_threshold": 0.0,
+    "balance": "smote",
+    "smote_k_neighbors": 5
+  },
+  "reproducibility": "seed=42",
+  "samples": {
+    "raw_train_pool": 125973,
+    "raw_test": 22544,
+    "grand_total": 148517
+  },
+  "cleaning": {
+    "missing_values_total_train_pool": 0,
+    "missing_values_total_test": 0,
+    "full_row_duplicates_in_train_pool": 0,
+    "full_row_duplicates_dropped": 0,
+    "full_row_duplicates_dropped_by_loader": 0,
+    "feature_only_duplicates_train_pool": 16,
+    "note_feature_only_duplicates": "rows with an identical 41-feature vector but a different label; kept in the training pool (dropping them changes the class balance)"
+  },
+  "features": {
+    "before_preprocessing": 41,
+    "after_encoding_and_variance_filter": 121,
+    "after_selection": 20,
+    "constant_features_dropped": [
+      "num__num_outbound_cmds"
+    ],
+    "selection_method": "top-20 by mutual_info_classif (fit on train only, seed=42)",
+    "selected_features": [
+      "num__src_bytes",
+      "num__dst_bytes",
+      "num__logged_in",
+      "num__count",
+      "num__serror_rate",
+      "num__srv_serror_rate",
+      "num__same_srv_rate",
+      "num__diff_srv_rate",
+      "num__dst_host_count",
+      "num__dst_host_srv_count",
+      "num__dst_host_same_srv_rate",
+      "num__dst_host_diff_srv_rate",
+      "num__dst_host_same_src_port_rate",
+      "num__dst_host_srv_diff_host_rate",
+      "num__dst_host_serror_rate",
+      "num__dst_host_srv_serror_rate",
+      "cat__service_http",
+      "cat__service_private",
+      "cat__flag_S0",
+      "cat__flag_SF"
+    ],
+    "mutual_information_top20": [
+      {
+        "feature": "num__src_bytes",
+        "mi": 0.566951
+      },
+      {
+        "feature": "num__dst_bytes",
+        "mi": 0.441671
+      },
+      {
+        "feature": "num__diff_srv_rate",
+        "mi": 0.360889
+      },
+      {
+        "feature": "num__same_srv_rate",
+        "mi": 0.357633
+      },
+      {
+        "feature": "num__dst_host_srv_count",
+        "mi": 0.332286
+      },
+      {
+        "feature": "cat__flag_SF",
+        "mi": 0.325324
+      },
+      {
+        "feature": "num__dst_host_same_srv_rate",
+        "mi": 0.307241
+      },
+      {
+        "feature": "num__logged_in",
+        "mi": 0.290139
+      },
+      {
+        "feature": "num__dst_host_diff_srv_rate",
+        "mi": 0.287137
+      },
+      {
+        "feature": "num__dst_host_serror_rate",
+        "mi": 0.285459
+      },
+      {
+        "feature": "num__dst_host_srv_serror_rate",
+        "mi": 0.283387
+      },
+      {
+        "feature": "num__serror_rate",
+        "mi": 0.277671
+      },
+      {
+        "feature": "num__srv_serror_rate",
+        "mi": 0.268272
+      },
+      {
+        "feature": "num__count",
+        "mi": 0.265309
+      },
+      {
+        "feature": "cat__flag_S0",
+        "mi": 0.25675
+      },
+      {
+        "feature": "num__dst_host_srv_diff_host_rate",
+        "mi": 0.188161
+      },
+      {
+        "feature": "cat__service_http",
+        "mi": 0.184631
+      },
+      {
+        "feature": "num__dst_host_count",
+        "mi": 0.138065
+      },
+      {
+        "feature": "num__dst_host_same_src_port_rate",
+        "mi": 0.13418
+      },
+      {
+        "feature": "cat__service_private",
+        "mi": 0.11721
+      }
+    ]
+  },
+  "splits": {
+    "mode": "predefined",
+    "strategy": "KDDTrain+ -> stratified train/val; KDDTest+ kept as held-out test (contains novel attack types by NSL-KDD design)",
+    "stratified_on": "attack_category (5-class)",
+    "train": {
+      "n_samples": 103695,
+      "percent_of_total": 69.8203,
+      "binary": {
+        "0": {
+          "count": 55433,
+          "percent": 53.4577
+        },
+        "1": {
+          "count": 48262,
+          "percent": 46.5423
+        }
+      },
+      "multiclass": {
+        "dos": {
+          "count": 37805,
+          "percent": 36.4579
+        },
+        "normal": {
+          "count": 55433,
+          "percent": 53.4577
+        },
+        "probe": {
+          "count": 9595,
+          "percent": 9.2531
+        },
+        "r2l": {
+          "count": 819,
+          "percent": 0.7898
+        },
+        "u2r": {
+          "count": 43,
+          "percent": 0.0415
+        }
+      }
+    },
+    "validation": {
+      "n_samples": 22278,
+      "percent_of_total": 15.0003,
+      "binary": {
+        "0": {
+          "count": 11910,
+          "percent": 53.4608
+        },
+        "1": {
+          "count": 10368,
+          "percent": 46.5392
+        }
+      },
+      "multiclass": {
+        "dos": {
+          "count": 8122,
+          "percent": 36.4575
+        },
+        "normal": {
+          "count": 11910,
+          "percent": 53.4608
+        },
+        "probe": {
+          "count": 2061,
+          "percent": 9.2513
+        },
+        "r2l": {
+          "count": 176,
+          "percent": 0.79
+        },
+        "u2r": {
+          "count": 9,
+          "percent": 0.0404
+        }
+      }
+    },
+    "test": {
+      "n_samples": 22544,
+      "percent_of_total": 15.1794,
+      "binary": {
+        "0": {
+          "count": 9711,
+          "percent": 43.0758
+        },
+        "1": {
+          "count": 12833,
+          "percent": 56.9242
+        }
+      },
+      "multiclass": {
+        "dos": {
+          "count": 7460,
+          "percent": 33.0908
+        },
+        "normal": {
+          "count": 9711,
+          "percent": 43.0758
+        },
+        "probe": {
+          "count": 2421,
+          "percent": 10.739
+        },
+        "r2l": {
+          "count": 2885,
+          "percent": 12.7972
+        },
+        "u2r": {
+          "count": 67,
+          "percent": 0.2972
+        }
+      }
+    }
+  },
+  "class_balance": {
+    "primary_target": "binary",
+    "method": "smote",
+    "train_before_balancing": {
+      "0": {
+        "count": 55433,
+        "percent": 53.4577
+      },
+      "1": {
+        "count": 48262,
+        "percent": 46.5423
+      }
+    },
+    "train_after_balancing": {
+      "0": {
+        "count": 55433,
+        "percent": 50.0
+      },
+      "1": {
+        "count": 55433,
+        "percent": 50.0
+      }
+    },
+    "smote_k_neighbors": 5,
+    "note": "NSL-KDD binary target is only mildly imbalanced (~53/47); class_weight is an equally valid alternative."
+  },
+  "raw_inspection": {
+    "train": {
+      "n_rows": 125973,
+      "n_feature_columns": 41,
+      "missing_values_total": 0,
+      "full_row_duplicates": 0,
+      "feature_only_duplicates": 16,
+      "dtype_counts": {
+        "int64": 23,
+        "float64": 15,
+        "object": 3
+      },
+      "categorical_cardinality": {
+        "protocol_type": 3,
+        "service": 70,
+        "flag": 11
+      },
+      "constant_numeric_features": [
+        "num_outbound_cmds"
+      ],
+      "binary_label_counts": {
+        "0": 67343,
+        "1": 58630
+      },
+      "attack_category_counts": {
+        "normal": 67343,
+        "dos": 45927,
+        "probe": 11656,
+        "r2l": 995,
+        "u2r": 52
+      },
+      "raw_label_counts": {
+        "normal": 67343,
+        "neptune": 41214,
+        "satan": 3633,
+        "ipsweep": 3599,
+        "portsweep": 2931,
+        "smurf": 2646,
+        "nmap": 1493,
+        "back": 956,
+        "teardrop": 892,
+        "warezclient": 890,
+        "pod": 201,
+        "guess_passwd": 53,
+        "buffer_overflow": 30,
+        "warezmaster": 20,
+        "land": 18,
+        "imap": 11,
+        "rootkit": 10,
+        "loadmodule": 9,
+        "ftp_write": 8,
+        "multihop": 7,
+        "phf": 4,
+        "perl": 3,
+        "spy": 2
+      }
+    },
+    "test": {
+      "n_rows": 22544,
+      "n_feature_columns": 41,
+      "missing_values_total": 0,
+      "full_row_duplicates": 0,
+      "feature_only_duplicates": 57,
+      "dtype_counts": {
+        "int64": 23,
+        "float64": 15,
+        "object": 3
+      },
+      "categorical_cardinality": {
+        "protocol_type": 3,
+        "service": 64,
+        "flag": 11
+      },
+      "constant_numeric_features": [
+        "num_outbound_cmds"
+      ],
+      "binary_label_counts": {
+        "0": 9711,
+        "1": 12833
+      },
+      "attack_category_counts": {
+        "normal": 9711,
+        "dos": 7460,
+        "r2l": 2885,
+        "probe": 2421,
+        "u2r": 67
+      },
+      "raw_label_counts": {
+        "normal": 9711,
+        "neptune": 4657,
+        "guess_passwd": 1231,
+        "mscan": 996,
+        "warezmaster": 944,
+        "apache2": 737,
+        "satan": 735,
+        "processtable": 685,
+        "smurf": 665,
+        "back": 359,
+        "snmpguess": 331,
+        "saint": 319,
+        "mailbomb": 293,
+        "snmpgetattack": 178,
+        "portsweep": 157,
+        "ipsweep": 141,
+        "httptunnel": 133,
+        "nmap": 73,
+        "pod": 41,
+        "buffer_overflow": 20,
+        "multihop": 18,
+        "named": 17,
+        "ps": 15,
+        "sendmail": 14,
+        "rootkit": 13,
+        "xterm": 13,
+        "teardrop": 12,
+        "xlock": 9,
+        "land": 7,
+        "xsnoop": 4,
+        "ftp_write": 3,
+        "worm": 2,
+        "loadmodule": 2,
+        "perl": 2,
+        "sqlattack": 2,
+        "udpstorm": 2,
+        "phf": 2,
+        "imap": 1
+      }
+    },
+    "novel_test_attack_labels": [
+      "apache2",
+      "httptunnel",
+      "mailbomb",
+      "mscan",
+      "named",
+      "processtable",
+      "ps",
+      "saint",
+      "sendmail",
+      "snmpgetattack",
+      "snmpguess",
+      "sqlattack",
+      "udpstorm",
+      "worm",
+      "xlock",
+      "xsnoop",
+      "xterm"
+    ]
+  }
+}

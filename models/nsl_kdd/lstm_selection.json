@@ -1,0 +1,201 @@
+{
+  "model_file": "lstm.pt",
+  "arch": {
+    "framework": "pytorch",
+    "torch_version": "2.5.1+cpu",
+    "window": 10,
+    "stride": 1,
+    "input_features": 20,
+    "lstm_units": 64,
+    "dense_units": 32,
+    "dropout": 0.3
+  },
+  "best_params": {
+    "lstm_units": 64
+  },
+  "best_val_macro_f1": 0.9862815006014048,
+  "train_seconds": 433.14471584499915,
+  "validation_search": [
+    {
+      "params": {
+        "lstm_units": 32
+      },
+      "val_macro_f1": 0.9860525680432333,
+      "best_epoch": 37
+    },
+    {
+      "params": {
+        "lstm_units": 64
+      },
+      "val_macro_f1": 0.9862815006014048,
+      "best_epoch": 31
+    }
+  ],
+  "fixed_params": {
+    "lstm_units": 64,
+    "dropout": 0.3,
+    "dense_units": 32,
+    "learning_rate": 0.001,
+    "batch_size": 256,
+    "epochs": 40
+  },
+  "notes": {
+    "best_epoch": 31,
+    "history": [
+      {
+        "epoch": 0,
+        "val_macro_f1": 0.9695051884406538
+      },
+      {
+        "epoch": 1,
+        "val_macro_f1": 0.9712007298140193
+      },
+      {
+        "epoch": 2,
+        "val_macro_f1": 0.9714612467087795
+      },
+      {
+        "epoch": 3,
+        "val_macro_f1": 0.9741449581252777
+      },
+      {
+        "epoch": 4,
+        "val_macro_f1": 0.9745995591707102
+      },
+      {
+        "epoch": 5,
+        "val_macro_f1": 0.9756424181078478
+      },
+      {
+        "epoch": 6,
+        "val_macro_f1": 0.9754602449495178
+      },
+      {
+        "epoch": 7,
+        "val_macro_f1": 0.975966412049417
+      },
+      {
+        "epoch": 8,
+        "val_macro_f1": 0.9765505671627336
+      },
+      {
+        "epoch": 9,
+        "val_macro_f1": 0.9774145558845491
+      },
+      {
+        "epoch": 10,
+        "val_macro_f1": 0.9776824721168194
+      },
+      {
+        "epoch": 11,
+        "val_macro_f1": 0.978555005232919
+      },
+      {
+        "epoch": 12,
+        "val_macro_f1": 0.9785638944651205
+      },
+      {
+        "epoch": 13,
+        "val_macro_f1": 0.9793242796757384
+      },
+      {
+        "epoch": 14,
+        "val_macro_f1": 0.9802679805534815
+      },
+      {
+        "epoch": 15,
+        "val_macro_f1": 0.9800499488139984
+      },
+      {
+        "epoch": 16,
+        "val_macro_f1": 0.9795385774689231
+      },
+      {
+        "epoch": 17,
+        "val_macro_f1": 0.9803621934506805
+      },
+      {
+        "epoch": 18,
+        "val_macro_f1": 0.9813546337113648
+      },
+      {
+        "epoch": 19,
+        "val_macro_f1": 0.9811702904716519
+      },
+      {
+        "epoch": 20,
+        "val_macro_f1": 0.9819406986358605
+      },
+      {
+        "epoch": 21,
+        "val_macro_f1": 0.9803140540169315
+      },
+      {
+        "epoch": 22,
+        "val_macro_f1": 0.982795876905754
+      },
+      {
+        "epoch": 23,
+        "val_macro_f1": 0.9831577957584636
+      },
+      {
+        "epoch": 24,
+        "val_macro_f1": 0.9821588538243704
+      },
+      {
+        "epoch": 25,
+        "val_macro_f1": 0.9830710786716508
+      },
+      {
+        "epoch": 26,
+        "val_macro_f1": 0.9841608483380699
+      },
+      {
+        "epoch": 27,
+        "val_macro_f1": 0.984790289670339
+      },
+      {
+        "epoch": 28,
+        "val_macro_f1": 0.9842963247004699
+      },
+      {
+        "epoch": 29,
+        "val_macro_f1": 0.9849688828701713
+      },
+      {
+        "epoch": 30,
+        "val_macro_f1": 0.984422714157001
+      },
+      {
+        "epoch": 31,
+        "val_macro_f1": 0.9862815006014048
+      },
+      {
+        "epoch": 32,
+        "val_macro_f1": 0.9855105447487238
+      },
+      {
+        "epoch": 33,
+        "val_macro_f1": 0.9848730151271066
+      },
+      {
+        "epoch": 34,
+        "val_macro_f1": 0.9853735078928805
+      },
+      {
+        "epoch": 35,
+        "val_macro_f1": 0.9850558291380412
+      },
+      {
+        "epoch": 36,
+        "val_macro_f1": 0.9857374349569032
+      }
+    ],
+    "window": 10,
+    "stride": 1,
+    "input_features": 20,
+    "train_windows": 103686,
+    "val_windows": 22269,
+    "pos_weight_in_loss": true
+  }
+}

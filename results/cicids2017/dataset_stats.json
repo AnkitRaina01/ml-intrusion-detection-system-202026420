@@ -1,0 +1,444 @@
+{
+  "generated_utc": "2026-09-09T09:19:59+00:00",
+  "dataset": "cicids2017",
+  "dataset_meta": {
+    "display_name": "CIC-IDS2017",
+    "source": "MachineLearningCVE daily flow CSVs (CICFlowMeter features)",
+    "raw_rows_available": 2830743,
+    "rows_after_subsample": 200000,
+    "subsample": "seeded (seed=42) label-stratified sub-sample to ~200,000 of 2,830,743 rows; classes with < 12,000 rows kept in full (memory-driven, reproducible)",
+    "split_strategy_predefined": "no official split exists; loader makes a seeded 85/15 stratified split of the sub-sample into a train pool + held-out test set, then prepare_dataset carves train/validation from the pool",
+    "balance_note": "CIC-IDS2017 is benign-heavy; SMOTE is applied to the training partition only. class_weight='balanced' is the alternative used by the model scripts."
+  },
+  "config": {
+    "dataset": "cicids2017",
+    "target": "binary",
+    "split_mode": "predefined",
+    "train_frac": 0.7,
+    "val_frac": 0.15,
+    "test_frac": 0.15,
+    "seed": 42,
+    "drop_full_row_duplicates": true,
+    "n_features": 20,
+    "variance_threshold": 0.0,
+    "balance": "smote",
+    "smote_k_neighbors": 5
+  },
+  "reproducibility": "seed=42",
+  "samples": {
+    "raw_train_pool": 170000,
+    "raw_test": 30000,
+    "grand_total": 189910
+  },
+  "cleaning": {
+    "missing_values_total_train_pool": 264,
+    "missing_values_total_test": 56,
+    "full_row_duplicates_in_train_pool": 10090,
+    "full_row_duplicates_dropped": 10090,
+    "full_row_duplicates_dropped_by_loader": 0,
+    "feature_only_duplicates_train_pool": 10101,
+    "note_feature_only_duplicates": "rows with an identical 77-feature vector but a different label; kept in the training pool (dropping them changes the class balance)"
+  },
+  "features": {
+    "before_preprocessing": 77,
+    "after_encoding_and_variance_filter": 69,
+    "after_selection": 20,
+    "constant_features_dropped": [
+      "num__Bwd PSH Flags",
+      "num__Bwd URG Flags",
+      "num__Fwd Avg Bytes/Bulk",
+      "num__Fwd Avg Packets/Bulk",
+      "num__Fwd Avg Bulk Rate",
+      "num__Bwd Avg Bytes/Bulk",
+      "num__Bwd Avg Packets/Bulk",
+      "num__Bwd Avg Bulk Rate"
+    ],
+    "selection_method": "top-20 by mutual_info_classif (fit on train only, seed=42)",
+    "selected_features": [
+      "num__Destination Port",
+      "num__Flow Duration",
+      "num__Total Length of Fwd Packets",
+      "num__Total Length of Bwd Packets",
+      "num__Fwd Packet Length Max",
+      "num__Bwd Packet Length Max",
+      "num__Bwd Packet Length Mean",
+      "num__Flow IAT Max",
+      "num__Fwd IAT Total",
+      "num__Fwd IAT Max",
+      "num__Max Packet Length",
+      "num__Packet Length Mean",
+      "num__Packet Length Std",
+      "num__Packet Length Variance",
+      "num__Average Packet Size",
+      "num__Avg Bwd Segment Size",
+      "num__Subflow Fwd Bytes",
+      "num__Subflow Bwd Bytes",
+      "num__Init_Win_bytes_forward",
+      "num__Init_Win_bytes_backward"
+    ],
+    "mutual_information_top20": [
+      {
+        "feature": "num__Packet Length Std",
+        "mi": 0.418641
+      },
+      {
+        "feature": "num__Packet Length Variance",
+        "mi": 0.418205
+      },
+      {
+        "feature": "num__Destination Port",
+        "mi": 0.402302
+      },
+      {
+        "feature": "num__Average Packet Size",
+        "mi": 0.390796
+      },
+      {
+        "feature": "num__Packet Length Mean",
+        "mi": 0.378396
+      },
+      {
+        "feature": "num__Max Packet Length",
+        "mi": 0.369956
+      },
+      {
+        "feature": "num__Avg Bwd Segment Size",
+        "mi": 0.364985
+      },
+      {
+        "feature": "num__Bwd Packet Length Mean",
+        "mi": 0.36359
+      },
+      {
+        "feature": "num__Total Length of Bwd Packets",
+        "mi": 0.363579
+      },
+      {
+        "feature": "num__Subflow Bwd Bytes",
+        "mi": 0.361799
+      },
+      {
+        "feature": "num__Init_Win_bytes_forward",
+        "mi": 0.349086
+      },
+      {
+        "feature": "num__Init_Win_bytes_backward",
+        "mi": 0.338432
+      },
+      {
+        "feature": "num__Bwd Packet Length Max",
+        "mi": 0.338075
+      },
+      {
+        "feature": "num__Subflow Fwd Bytes",
+        "mi": 0.337789
+      },
+      {
+        "feature": "num__Total Length of Fwd Packets",
+        "mi": 0.337362
+      },
+      {
+        "feature": "num__Fwd IAT Max",
+        "mi": 0.323636
+      },
+      {
+        "feature": "num__Fwd Packet Length Max",
+        "mi": 0.3149
+      },
+      {
+        "feature": "num__Flow IAT Max",
+        "mi": 0.302797
+      },
+      {
+        "feature": "num__Fwd IAT Total",
+        "mi": 0.294629
+      },
+      {
+        "feature": "num__Flow Duration",
+        "mi": 0.293964
+      }
+    ]
+  },
+  "splits": {
+    "mode": "predefined",
+    "strategy": "no official split exists; loader makes a seeded 85/15 stratified split of the sub-sample into a train pool + held-out test set, then prepare_dataset carves train/validation from the pool",
+    "stratified_on": "attack_category (8-class)",
+    "train": {
+      "n_samples": 131424,
+      "percent_of_total": 69.2033,
+      "binary": {
+        "0": {
+          "count": 89005,
+          "percent": 67.7236
+        },
+        "1": {
+          "count": 42419,
+          "percent": 32.2764
+        }
+      },
+      "multiclass": {
+        "benign": {
+          "count": 89005,
+          "percent": 67.7236
+        },
+        "botnet": {
+          "count": 1366,
+          "percent": 1.0394
+        },
+        "brute_force": {
+          "count": 6482,
+          "percent": 4.9321
+        },
+        "ddos": {
+          "count": 5139,
+          "percent": 3.9102
+        },
+        "dos": {
+          "count": 21808,
+          "percent": 16.5936
+        },
+        "infiltration": {
+          "count": 25,
+          "percent": 0.019
+        },
+        "probe": {
+          "count": 6102,
+          "percent": 4.643
+        },
+        "web_attack": {
+          "count": 1497,
+          "percent": 1.1391
+        }
+      }
+    },
+    "validation": {
+      "n_samples": 28486,
+      "percent_of_total": 14.9997,
+      "binary": {
+        "0": {
+          "count": 19292,
+          "percent": 67.7245
+        },
+        "1": {
+          "count": 9194,
+          "percent": 32.2755
+        }
+      },
+      "multiclass": {
+        "benign": {
+          "count": 19292,
+          "percent": 67.7245
+        },
+        "botnet": {
+          "count": 296,
+          "percent": 1.0391
+        },
+        "brute_force": {
+          "count": 1405,
+          "percent": 4.9322
+        },
+        "ddos": {
+          "count": 1114,
+          "percent": 3.9107
+        },
+        "dos": {
+          "count": 4727,
+          "percent": 16.5941
+        },
+        "infiltration": {
+          "count": 6,
+          "percent": 0.0211
+        },
+        "probe": {
+          "count": 1322,
+          "percent": 4.6409
+        },
+        "web_attack": {
+          "count": 324,
+          "percent": 1.1374
+        }
+      }
+    },
+    "test": {
+      "n_samples": 30000,
+      "percent_of_total": 15.797,
+      "binary": {
+        "0": {
+          "count": 19592,
+          "percent": 65.3067
+        },
+        "1": {
+          "count": 10408,
+          "percent": 34.6933
+        }
+      },
+      "multiclass": {
+        "benign": {
+          "count": 19592,
+          "percent": 65.3067
+        },
+        "botnet": {
+          "count": 295,
+          "percent": 0.9833
+        },
+        "brute_force": {
+          "count": 2075,
+          "percent": 6.9167
+        },
+        "ddos": {
+          "count": 1104,
+          "percent": 3.68
+        },
+        "dos": {
+          "count": 5232,
+          "percent": 17.44
+        },
+        "infiltration": {
+          "count": 5,
+          "percent": 0.0167
+        },
+        "probe": {
+          "count": 1370,
+          "percent": 4.5667
+        },
+        "web_attack": {
+          "count": 327,
+          "percent": 1.09
+        }
+      }
+    }
+  },
+  "class_balance": {
+    "primary_target": "binary",
+    "method": "smote",
+    "train_before_balancing": {
+      "0": {
+        "count": 89005,
+        "percent": 67.7236
+      },
+      "1": {
+        "count": 42419,
+        "percent": 32.2764
+      }
+    },
+    "train_after_balancing": {
+      "0": {
+        "count": 89005,
+        "percent": 50.0
+      },
+      "1": {
+        "count": 89005,
+        "percent": 50.0
+      }
+    },
+    "smote_k_neighbors": 5,
+    "note": "CIC-IDS2017 is benign-heavy; SMOTE is applied to the training partition only. class_weight='balanced' is the alternative used by the model scripts."
+  },
+  "raw_inspection": {
+    "train": {
+      "n_rows": 170000,
+      "n_feature_columns": 77,
+      "missing_values_total": 264,
+      "full_row_duplicates": 10090,
+      "feature_only_duplicates": 10101,
+      "dtype_counts": {
+        "float32": 77
+      },
+      "categorical_cardinality": {},
+      "constant_numeric_features": [
+        "Bwd PSH Flags",
+        "Bwd URG Flags",
+        "Fwd Avg Bytes/Bulk",
+        "Fwd Avg Packets/Bulk",
+        "Fwd Avg Bulk Rate",
+        "Bwd Avg Bytes/Bulk",
+        "Bwd Avg Packets/Bulk",
+        "Bwd Avg Bulk Rate"
+      ],
+      "binary_label_counts": {
+        "0": 111025,
+        "1": 58975
+      },
+      "attack_category_counts": {
+        "benign": 111025,
+        "dos": 29645,
+        "brute_force": 11760,
+        "probe": 7762,
+        "ddos": 6253,
+        "web_attack": 1853,
+        "botnet": 1671,
+        "infiltration": 31
+      },
+      "raw_label_counts": {
+        "benign": 111025,
+        "dos hulk": 11286,
+        "dos goldeneye": 8749,
+        "portscan": 7762,
+        "ftp-patator": 6747,
+        "ddos": 6253,
+        "ssh-patator": 5013,
+        "dos slowloris": 4927,
+        "dos slowhttptest": 4674,
+        "bot": 1671,
+        "web attack - brute force": 1281,
+        "web attack - xss": 554,
+        "infiltration": 31,
+        "web attack - sql injection": 18,
+        "heartbleed": 9
+      }
+    },
+    "test": {
+      "n_rows": 30000,
+      "n_feature_columns": 77,
+      "missing_values_total": 56,
+      "full_row_duplicates": 1238,
+      "feature_only_duplicates": 1238,
+      "dtype_counts": {
+        "float32": 77
+      },
+      "categorical_cardinality": {},
+      "constant_numeric_features": [
+        "Bwd PSH Flags",
+        "Bwd URG Flags",
+        "Fwd Avg Bytes/Bulk",
+        "Fwd Avg Packets/Bulk",
+        "Fwd Avg Bulk Rate",
+        "Bwd Avg Bytes/Bulk",
+        "Bwd Avg Packets/Bulk",
+        "Bwd Avg Bulk Rate"
+      ],
+      "binary_label_counts": {
+        "0": 19592,
+        "1": 10408
+      },
+      "attack_category_counts": {
+        "benign": 19592,
+        "dos": 5232,
+        "brute_force": 2075,
+        "probe": 1370,
+        "ddos": 1104,
+        "web_attack": 327,
+        "botnet": 295,
+        "infiltration": 5
+      },
+      "raw_label_counts": {
+        "benign": 19592,
+        "dos hulk": 1992,
+        "dos goldeneye": 1544,
+        "portscan": 1370,
+        "ftp-patator": 1191,
+        "ddos": 1104,
+        "ssh-patator": 884,
+        "dos slowloris": 869,
+        "dos slowhttptest": 825,
+        "bot": 295,
+        "web attack - brute force": 226,
+        "web attack - xss": 98,
+        "infiltration": 5,
+        "web attack - sql injection": 3,
+        "heartbleed": 2
+      }
+    },
+    "novel_test_attack_labels": []
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "model_file": "random_forest.joblib",
+  "dataset": "cicids2017",
+  "best_params": {
+    "n_estimators": 200,
+    "max_depth": null
+  },
+  "best_val_macro_f1": 0.9973500745174027,
+  "train_seconds": 329.10868466099964,
+  "validation_search": [
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": null
+      },
+      "val_macro_f1": 0.9973500745174027
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 20
+      },
+      "val_macro_f1": 0.9959895188102859
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 40
+      },
+      "val_macro_f1": 0.9973100007005329
+    },
+    {
+      "params": {
+        "n_estimators": 400,
+        "max_depth": null
+      },
+      "val_macro_f1": 0.9973101538031715
+    },
+    {
+      "params": {
+        "n_estimators": 400,
+        "max_depth": 20
+      },
+      "val_macro_f1": 0.9959095408542064
+    },
+    {
+      "params": {
+        "n_estimators": 400,
+        "max_depth": 40
+      },
+      "val_macro_f1": 0.9973101538031715
+    }
+  ],
+  "fixed_params": {
+    "class_weight": "balanced",
+    "n_jobs": -1
+  },
+  "notes": {
+    "train_rows_used": 131424,
+    "train_rows_available": 131424,
+    "class_weight": "balanced"
+  }
+}

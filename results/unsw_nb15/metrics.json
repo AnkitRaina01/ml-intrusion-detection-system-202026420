@@ -1,0 +1,244 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "metrics": {
+        "n_samples": 82332,
+        "accuracy": 0.7707331292814459,
+        "precision_attack": 0.7121639828061846,
+        "recall_attack": 0.9794846907261978,
+        "f1_attack": 0.8247028231797919,
+        "macro_f1": 0.7467259728702553,
+        "weighted_f1": 0.7546172316369446,
+        "roc_auc": 0.7437591746537855,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              19054,
+              17946
+            ],
+            [
+              930,
+              44402
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.953462770216173,
+            "recall": 0.514972972972973,
+            "f1": 0.6687491225607188,
+            "support": 37000
+          },
+          "attack": {
+            "precision": 0.7121639828061846,
+            "recall": 0.9794846907261978,
+            "f1": 0.8247028231797919,
+            "support": 45332
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 0.0034337920005782507,
+        "batch_seconds_min": 0.0029177249998610932,
+        "per_sample_ms_median": 0.00017168960002891256,
+        "per_sample_ms_min": 0.00014588624999305468,
+        "throughput_samples_per_s": 5824464.61423173,
+        "timing_rows": 20000
+      },
+      "train_seconds": 4.399428271000943,
+      "hyperparameters": {
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "class_weight": "balanced",
+        "C": 0.01
+      },
+      "val_macro_f1": 0.8746393612491187,
+      "test_set": {
+        "n_samples": 82332,
+        "source": "unsw_nb15 held-out test split"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "Random Forest": {
+      "metrics": {
+        "n_samples": 82332,
+        "accuracy": 0.8608196084147112,
+        "precision_attack": 0.8098234702277508,
+        "recall_attack": 0.9765507809053208,
+        "f1_attack": 0.8854065621968659,
+        "macro_f1": 0.8541032223358492,
+        "weighted_f1": 0.857271120938118,
+        "roc_auc": 0.9768659869169443,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              26604,
+              10396
+            ],
+            [
+              1063,
+              44269
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.9615787761593234,
+            "recall": 0.719027027027027,
+            "f1": 0.8227998824748326,
+            "support": 37000
+          },
+          "attack": {
+            "precision": 0.8098234702277508,
+            "recall": 0.9765507809053208,
+            "f1": 0.8854065621968659,
+            "support": 45332
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 0.5588132310003857,
+        "batch_seconds_min": 0.5430844160000561,
+        "per_sample_ms_median": 0.027940661550019286,
+        "per_sample_ms_min": 0.027154220800002803,
+        "throughput_samples_per_s": 35790.133251133055,
+        "timing_rows": 20000
+      },
+      "train_seconds": 181.31216069400034,
+      "hyperparameters": {
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "n_estimators": 400,
+        "max_depth": 20
+      },
+      "val_macro_f1": 0.92080404317824,
+      "test_set": {
+        "n_samples": 82332,
+        "source": "unsw_nb15 held-out test split"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "SVM (RBF)": {
+      "metrics": {
+        "n_samples": 82332,
+        "accuracy": 0.8076325122674052,
+        "precision_attack": 0.7415719293647414,
+        "recall_attack": 0.9986323127150799,
+        "f1_attack": 0.8511158322209479,
+        "macro_f1": 0.789693386034641,
+        "weighted_f1": 0.7959093387823493,
+        "roc_auc": 0.8991063680927022,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              21224,
+              15776
+            ],
+            [
+              62,
+              45270
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.9970872874189608,
+            "recall": 0.5736216216216217,
+            "f1": 0.7282709398483341,
+            "support": 37000
+          },
+          "attack": {
+            "precision": 0.7415719293647414,
+            "recall": 0.9986323127150799,
+            "f1": 0.8511158322209479,
+            "support": 45332
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 5.137232977998792,
+        "batch_seconds_min": 5.000841232998937,
+        "per_sample_ms_median": 0.2568616488999396,
+        "per_sample_ms_min": 0.2500420616499468,
+        "throughput_samples_per_s": 3893.1463855452776,
+        "timing_rows": 20000
+      },
+      "train_seconds": 55.213771369000824,
+      "hyperparameters": {
+        "kernel": "rbf",
+        "class_weight": "balanced",
+        "gamma": "scale",
+        "cache_size": 512,
+        "C": 10.0
+      },
+      "val_macro_f1": 0.9005884540134476,
+      "test_set": {
+        "n_samples": 82332,
+        "source": "unsw_nb15 held-out test split"
+      },
+      "score_source": "decision_function"
+    }
+  },
+  "phase": 4,
+  "evaluation_type": "within-dataset",
+  "dataset": "unsw_nb15",
+  "dataset_display": "UNSW-NB15",
+  "task": "binary",
+  "seed": 42,
+  "generated_utc": "2026-09-09T11:57:06Z",
+  "n_selected_features": 20,
+  "selected_features": [
+    "num__dur",
+    "num__spkts",
+    "num__dpkts",
+    "num__sbytes",
+    "num__dbytes",
+    "num__rate",
+    "num__sttl",
+    "num__dttl",
+    "num__sload",
+    "num__dload",
+    "num__sinpkt",
+    "num__dinpkt",
+    "num__sjit",
+    "num__djit",
+    "num__tcprtt",
+    "num__synack",
+    "num__ackdat",
+    "num__smean",
+    "num__dmean",
+    "num__ct_state_ttl"
+  ],
+  "methodology": "fit on train split, hyper-parameters chosen by macro-F1 on the validation split, test split evaluated once here; no refit on train+val; class_weight='balanced'. Identical to Phase 3 (NSL-KDD) so the datasets are directly comparable.",
+  "imbalance_strategy": "class_weight",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scikit_learn": "1.5.2"
+  },
+  "notes": {
+    "svm_rbf": "trained on a seeded stratified subsample; ROC-AUC from decision_function",
+    "lstm": "excluded for flow datasets - see DEVELOPMENT_NOTES.md 11.4"
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "metrics": {
+        "n_samples": 30000,
+        "accuracy": 0.8317333333333333,
+        "precision_attack": 0.7945702352165311,
+        "recall_attack": 0.6945618754803997,
+        "f1_attack": 0.7412078334871322,
+        "macro_f1": 0.8082736949823175,
+        "weighted_f1": 0.8288047907147101,
+        "roc_auc": 0.9150763488305161,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              17723,
+              1869
+            ],
+            [
+              3179,
+              7229
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.84790929097694,
+            "recall": 0.9046039199673336,
+            "f1": 0.8753395564775028,
+            "support": 19592
+          },
+          "attack": {
+            "precision": 0.7945702352165311,
+            "recall": 0.6945618754803997,
+            "f1": 0.7412078334871322,
+            "support": 10408
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 0.0070181770006456645,
+        "batch_seconds_min": 0.003970388999732677,
+        "per_sample_ms_median": 0.00035090885003228326,
+        "per_sample_ms_min": 0.00019851944998663384,
+        "throughput_samples_per_s": 2849742.8888100176,
+        "timing_rows": 20000
+      },
+      "train_seconds": 9.7247811440011,
+      "hyperparameters": {
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "class_weight": "balanced",
+        "C": 10.0
+      },
+      "val_macro_f1": 0.8494405075354257,
+      "test_set": {
+        "n_samples": 30000,
+        "source": "cicids2017 held-out test split"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "Random Forest": {
+      "metrics": {
+        "n_samples": 30000,
+        "accuracy": 0.9978,
+        "precision_attack": 0.9961619650738822,
+        "recall_attack": 0.9975019215987702,
+        "f1_attack": 0.9968314930388862,
+        "macro_f1": 0.9975732650285061,
+        "weighted_f1": 0.9978003461602618,
+        "roc_auc": 0.9998250140687079,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              19552,
+              40
+            ],
+            [
+              26,
+              10382
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.99867197875166,
+            "recall": 0.9979583503470805,
+            "f1": 0.9983150370181261,
+            "support": 19592
+          },
+          "attack": {
+            "precision": 0.9961619650738822,
+            "recall": 0.9975019215987702,
+            "f1": 0.9968314930388862,
+            "support": 10408
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 0.14953314699960174,
+        "batch_seconds_min": 0.14744846699977643,
+        "per_sample_ms_median": 0.007476657349980087,
+        "per_sample_ms_min": 0.007372423349988822,
+        "throughput_samples_per_s": 133749.6093762627,
+        "timing_rows": 20000
+      },
+      "train_seconds": 329.10868466099964,
+      "hyperparameters": {
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "n_estimators": 200,
+        "max_depth": null
+      },
+      "val_macro_f1": 0.9973500745174027,
+      "test_set": {
+        "n_samples": 30000,
+        "source": "cicids2017 held-out test split"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "SVM (RBF)": {
+      "metrics": {
+        "n_samples": 30000,
+        "accuracy": 0.8953333333333333,
+        "precision_attack": 0.7799691833590139,
+        "recall_attack": 0.9727132974634897,
+        "f1_attack": 0.8657431161279289,
+        "macro_f1": 0.8899894429104629,
+        "weighted_f1": 0.8974120517494892,
+        "roc_auc": 0.9595068102786467,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              16736,
+              2856
+            ],
+            [
+              284,
+              10124
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.9833137485311398,
+            "recall": 0.8542262147815435,
+            "f1": 0.9142357696929968,
+            "support": 19592
+          },
+          "attack": {
+            "precision": 0.7799691833590139,
+            "recall": 0.9727132974634897,
+            "f1": 0.8657431161279289,
+            "support": 10408
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 20000,
+        "n_repeats": 3,
+        "batch_seconds_median": 4.881124625000666,
+        "batch_seconds_min": 4.788210890999835,
+        "per_sample_ms_median": 0.2440562312500333,
+        "per_sample_ms_min": 0.23941054454999175,
+        "throughput_samples_per_s": 4097.416381782563,
+        "timing_rows": 20000
+      },
+      "train_seconds": 46.74902039600056,
+      "hyperparameters": {
+        "kernel": "rbf",
+        "class_weight": "balanced",
+        "gamma": "scale",
+        "cache_size": 512,
+        "C": 10.0
+      },
+      "val_macro_f1": 0.8937874981234559,
+      "test_set": {
+        "n_samples": 30000,
+        "source": "cicids2017 held-out test split"
+      },
+      "score_source": "decision_function"
+    }
+  },
+  "phase": 4,
+  "evaluation_type": "within-dataset",
+  "dataset": "cicids2017",
+  "dataset_display": "CIC-IDS2017",
+  "task": "binary",
+  "seed": 42,
+  "generated_utc": "2026-09-09T11:51:30Z",
+  "n_selected_features": 20,
+  "selected_features": [
+    "num__Destination Port",
+    "num__Flow Duration",
+    "num__Total Length of Fwd Packets",
+    "num__Total Length of Bwd Packets",
+    "num__Fwd Packet Length Max",
+    "num__Bwd Packet Length Max",
+    "num__Bwd Packet Length Mean",
+    "num__Flow IAT Max",
+    "num__Fwd IAT Total",
+    "num__Fwd IAT Max",
+    "num__Max Packet Length",
+    "num__Packet Length Mean",
+    "num__Packet Length Std",
+    "num__Packet Length Variance",
+    "num__Average Packet Size",
+    "num__Avg Bwd Segment Size",
+    "num__Subflow Fwd Bytes",
+    "num__Subflow Bwd Bytes",
+    "num__Init_Win_bytes_forward",
+    "num__Init_Win_bytes_backward"
+  ],
+  "methodology": "fit on train split, hyper-parameters chosen by macro-F1 on the validation split, test split evaluated once here; no refit on train+val; class_weight='balanced'. Identical to Phase 3 (NSL-KDD) so the datasets are directly comparable.",
+  "imbalance_strategy": "class_weight",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scikit_learn": "1.5.2"
+  },
+  "notes": {
+    "svm_rbf": "trained on a seeded stratified subsample; ROC-AUC from decision_function",
+    "lstm": "excluded for flow datasets - see DEVELOPMENT_NOTES.md 11.4"
+  }
+}

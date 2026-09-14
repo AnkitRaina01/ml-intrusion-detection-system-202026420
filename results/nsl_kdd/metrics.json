@@ -1,0 +1,290 @@
+{
+  "models": {
+    "Logistic Regression": {
+      "metrics": {
+        "n_samples": 22544,
+        "accuracy": 0.7194375443577005,
+        "precision_attack": 0.9073610415623435,
+        "recall_attack": 0.5647938907504091,
+        "f1_attack": 0.696220162336103,
+        "macro_f1": 0.7177890690940415,
+        "weighted_f1": 0.7148021046290715,
+        "roc_auc": 0.8889591618085269,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              8971,
+              740
+            ],
+            [
+              5585,
+              7248
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.6163094256663919,
+            "recall": 0.9237977551230563,
+            "f1": 0.73935797585198,
+            "support": 9711
+          },
+          "attack": {
+            "precision": 0.9073610415623435,
+            "recall": 0.5647938907504091,
+            "f1": 0.696220162336103,
+            "support": 12833
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 22544,
+        "n_repeats": 5,
+        "batch_seconds_median": 0.002281998000398744,
+        "batch_seconds_min": 0.0021104579991515493,
+        "per_sample_ms_median": 0.00010122418383599823,
+        "per_sample_ms_min": 9.361506383745338e-05,
+        "throughput_samples_per_s": 9879062.118398344
+      },
+      "train_seconds": 3.309850382998775,
+      "hyperparameters": {
+        "solver": "lbfgs",
+        "max_iter": 2000,
+        "class_weight": "balanced",
+        "C": 0.01
+      },
+      "val_macro_f1": 0.9605731218800108,
+      "test_set": {
+        "n_samples": 22544,
+        "source": "KDDTest+ (all records)"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "Random Forest": {
+      "metrics": {
+        "n_samples": 22544,
+        "accuracy": 0.7706263307310149,
+        "precision_attack": 0.9696003922530032,
+        "recall_attack": 0.6163796462245773,
+        "f1_attack": 0.7536563289028632,
+        "macro_f1": 0.7695326504870377,
+        "weighted_f1": 0.767334022205198,
+        "roc_auc": 0.9497792202603499,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              9463,
+              248
+            ],
+            [
+              4923,
+              7910
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.6577922980675657,
+            "recall": 0.9744619503655648,
+            "f1": 0.7854089720712122,
+            "support": 9711
+          },
+          "attack": {
+            "precision": 0.9696003922530032,
+            "recall": 0.6163796462245773,
+            "f1": 0.7536563289028632,
+            "support": 12833
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 22544,
+        "n_repeats": 5,
+        "batch_seconds_median": 0.17307470299965644,
+        "batch_seconds_min": 0.16881650400137005,
+        "per_sample_ms_median": 0.007677195839232455,
+        "per_sample_ms_min": 0.007488311923410666,
+        "throughput_samples_per_s": 130255.89302929354
+      },
+      "train_seconds": 89.62338857400027,
+      "hyperparameters": {
+        "class_weight": "balanced",
+        "n_jobs": -1,
+        "n_estimators": 200,
+        "max_depth": null
+      },
+      "val_macro_f1": 0.9981505156916807,
+      "test_set": {
+        "n_samples": 22544,
+        "source": "KDDTest+ (all records)"
+      },
+      "score_source": "predict_proba[:,1]"
+    },
+    "SVM (RBF)": {
+      "metrics": {
+        "n_samples": 22544,
+        "accuracy": 0.7251596877217885,
+        "precision_attack": 0.9077282221403121,
+        "recall_attack": 0.5757032650198707,
+        "f1_attack": 0.7045584588975777,
+        "macro_f1": 0.7238167978680956,
+        "weighted_f1": 0.7211498117846162,
+        "roc_auc": 0.8349542846472355,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              8960,
+              751
+            ],
+            [
+              5445,
+              7388
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.6220062478306144,
+            "recall": 0.9226650190505612,
+            "f1": 0.7430751368386134,
+            "support": 9711
+          },
+          "attack": {
+            "precision": 0.9077282221403121,
+            "recall": 0.5757032650198707,
+            "f1": 0.7045584588975777,
+            "support": 12833
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 22544,
+        "n_repeats": 5,
+        "batch_seconds_median": 1.394657314000142,
+        "batch_seconds_min": 1.338132005999796,
+        "per_sample_ms_median": 0.061863791430098555,
+        "per_sample_ms_min": 0.05935645874732949,
+        "throughput_samples_per_s": 16164.544346266344
+      },
+      "train_seconds": 8.102512843999648,
+      "hyperparameters": {
+        "kernel": "rbf",
+        "class_weight": "balanced",
+        "gamma": "scale",
+        "cache_size": 512,
+        "C": 10.0
+      },
+      "val_macro_f1": 0.9812228665383798,
+      "test_set": {
+        "n_samples": 22544,
+        "source": "KDDTest+ (all records)"
+      },
+      "score_source": "decision_function"
+    },
+    "LSTM": {
+      "metrics": {
+        "n_samples": 22535,
+        "accuracy": 0.7572664743731973,
+        "precision_attack": 0.9150496389891697,
+        "recall_attack": 0.6322887433738696,
+        "f1_attack": 0.7478333026000369,
+        "macro_f1": 0.7569263185085051,
+        "weighted_f1": 0.7556669751470528,
+        "roc_auc": 0.8845685323026735,
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              8954,
+              753
+            ],
+            [
+              4717,
+              8111
+            ]
+          ],
+          "layout": "rows = true class, cols = predicted class"
+        },
+        "per_class": {
+          "normal": {
+            "precision": 0.6549630604930144,
+            "recall": 0.9224271144534871,
+            "f1": 0.7660193344169732,
+            "support": 9707
+          },
+          "attack": {
+            "precision": 0.9150496389891697,
+            "recall": 0.6322887433738696,
+            "f1": 0.7478333026000369,
+            "support": 12828
+          }
+        }
+      },
+      "latency": {
+        "n_samples": 22535,
+        "n_repeats": 5,
+        "batch_seconds_median": 0.2585053839993634,
+        "batch_seconds_min": 0.225866065999071,
+        "per_sample_ms_median": 0.01147128395825886,
+        "per_sample_ms_min": 0.010022900643402307,
+        "throughput_samples_per_s": 87174.19982268337
+      },
+      "train_seconds": 433.14471584499915,
+      "hyperparameters": {
+        "lstm_units": 64,
+        "dropout": 0.3,
+        "dense_units": 32,
+        "learning_rate": 0.001,
+        "batch_size": 256,
+        "epochs": 40,
+        "window": 10,
+        "stride": 1
+      },
+      "val_macro_f1": 0.9862815006014048,
+      "test_set": {
+        "n_samples": 22535,
+        "source": "KDDTest+ windowed (W=10); 22535 of 22544 records can anchor a full window"
+      },
+      "score_source": "sigmoid(logit)",
+      "sequence_representation": [
+        "NSL-KDD has no timestamps / session ids",
+        "file-order label autocorrelation is near zero (mean run length ~2)",
+        "windows impose an order that is only weakly meaningful; the LSTM here is effectively 'LSTM over a context window of tabular records'"
+      ]
+    }
+  },
+  "phase": 3,
+  "dataset": "nsl_kdd",
+  "task": "binary",
+  "seed": 42,
+  "generated_utc": "2026-09-08T19:19:17Z",
+  "methodology": "fit on train, hyper-parameters chosen by macro-F1 on validation, test (KDDTest+) evaluated once here; no refit on train+val; class_weight='balanced' (LSTM: pos_weight in BCE loss).",
+  "imbalance_strategy": "class_weight",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scikit_learn": "1.5.2"
+  },
+  "notes": {
+    "svm_rbf": "trained on a seeded stratified subsample; ROC-AUC from decision_function",
+    "lstm": "PyTorch; evaluated on windowed KDDTest+ (22535/22544 records); see sequence_metadata.json / DEVELOPMENT_NOTES 10.3"
+  }
+}

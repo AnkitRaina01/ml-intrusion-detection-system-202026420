@@ -1,0 +1,71 @@
+{
+  "generated_utc": "2026-09-08T19:17:12Z",
+  "seed": 42,
+  "task": "binary",
+  "dataset": "nsl_kdd",
+  "imbalance_strategy": "class_weight",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "1.26.4",
+    "scikit_learn": "1.5.2"
+  },
+  "config_file": "configs/phase3_nsl_kdd.json",
+  "models": {
+    "lstm": {
+      "best_params": {
+        "lstm_units": 64
+      },
+      "best_val_macro_f1": 0.9862815006014048,
+      "train_seconds": 433.14471584499915,
+      "best_epoch": 31,
+      "arch": {
+        "framework": "pytorch",
+        "torch_version": "2.5.1+cpu",
+        "window": 10,
+        "stride": 1,
+        "input_features": 20,
+        "lstm_units": 64,
+        "dense_units": 32,
+        "dropout": 0.3
+      }
+    },
+    "logreg": {
+      "best_params": {
+        "C": 0.01
+      },
+      "best_val_macro_f1": 0.9605731218800108,
+      "train_seconds": 3.309850382998775,
+      "notes": {
+        "train_rows_used": 103695,
+        "train_rows_available": 103695,
+        "class_weight": "balanced"
+      }
+    },
+    "random_forest": {
+      "best_params": {
+        "n_estimators": 200,
+        "max_depth": null
+      },
+      "best_val_macro_f1": 0.9981505156916807,
+      "train_seconds": 89.62338857400027,
+      "notes": {
+        "train_rows_used": 103695,
+        "train_rows_available": 103695,
+        "class_weight": "balanced"
+      }
+    },
+    "svm_rbf": {
+      "best_params": {
+        "C": 10.0
+      },
+      "best_val_macro_f1": 0.9812228665383798,
+      "train_seconds": 8.102512843999648,
+      "notes": {
+        "train_rows_used": 20000,
+        "train_rows_available": 103695,
+        "class_weight": "balanced"
+      }
+    }
+  },
+  "note": "assembled from multiple --only runs"
+}
